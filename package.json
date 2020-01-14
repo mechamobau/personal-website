@@ -146,5 +146,8 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/mechamobau/personal-website/issues"
   }
 }

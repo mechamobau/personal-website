@@ -1,4 +1,4 @@
-# (lucasviana.dev)[https://lucasviana.dev]
+# [lucasviana.dev](https://lucasviana.dev)
 
 My Personal Website, bootstraped with [Create React App](https://github.com/facebook/create-react-app) with `--typescript` flag.
 

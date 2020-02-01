@@ -16,6 +16,7 @@ const Wrapper = styled.section`
   display: flex;
   position: relative;
   padding-top: 40px;
+  z-index: 2;
 `;
 
 const TextColumn = styled.div`

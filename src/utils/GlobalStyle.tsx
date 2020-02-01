@@ -10,7 +10,7 @@ export default createGlobalStyle`
     list-style:none;
     border:0
   }
-  html, body {
+  html, body, #root, main {
     height: 100%;
   }
   html {

@@ -26,6 +26,7 @@ const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const TsConfigPathsPlugin = require("awesome-typescript-loader")
   .TsConfigPathsPlugin;
+const CopyPlugin = require("copy-webpack-plugin");
 
 const postcssNormalize = require("postcss-normalize");
 
@@ -540,6 +541,17 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+      new CopyPlugin([
+        {
+          flatten: true,
+          from: {
+            glob: `${root}/src/components/*/**/translations/*.{pt-BR,en-US}.json`
+          },
+          to: `${root}/dist/locales`,
+          transformPath: targetPath =>
+            targetPath.replace(/^(.+)\/(.+)\.(.+)\.(json)$/, "$1/$3/$2.$4")
+        }
+      ]),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358

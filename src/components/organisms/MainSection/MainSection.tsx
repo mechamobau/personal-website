@@ -1,7 +1,7 @@
 import React from "react";
 
 import styled, { css } from "styled-components";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { COLORS } from "@/utils/ui";
 
 import ProfileBox from "./components/ProfileBox";
@@ -102,8 +102,17 @@ const Content = () => {
   return (
     <Wrapper>
       <TextColumn>
-        <Title>{t("content:title")}</Title>
-        <Subtitle>{t("content:subtitle")}</Subtitle>
+        <Title>
+          <Trans i18nKey="content:title">
+            Frontend <br />
+            Engineer
+          </Trans>
+        </Title>
+        <Subtitle>
+          <Trans i18nKey="content:subtitle">
+            and a <strong>geek</strong> in free time{" "}
+          </Trans>
+        </Subtitle>
       </TextColumn>
       <PhotoColumn>
         <ProfileBox />

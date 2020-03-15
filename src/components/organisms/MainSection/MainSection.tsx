@@ -4,17 +4,23 @@ import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "@/utils/ui";
 
-const profile = require("@/assets/img/profile.png");
+import ProfileBox from "./components/ProfileBox";
 
 const columnCSS = css`
-  width: 48%;
-  display: inline-block;
-  margin: 0 1%;
+  width: 100%;
+  display: flex;
+
+  @media (min-width: 992px) {
+    width: 48%;
+    margin: 0 1%;
+  }
 `;
 
 const Wrapper = styled.section`
   display: flex;
-  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   padding-top: 40px;
   z-index: 2;
 `;
@@ -22,63 +28,43 @@ const Wrapper = styled.section`
 const TextColumn = styled.div`
   ${columnCSS}
   text-align: center;
-  padding-left: 40px;
+  flex-direction: column;
+
+  @media (min-width: 992px) {
+    padding-left: 40px;
+  }
 `;
 
 const PhotoColumn = styled.div`
   ${columnCSS}
-  height: 35.3rem;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+
+  @media (min-width: 992px) {
+    padding-top: 0;
+  }
 `;
 
 const Title = styled.h1`
   margin-top: 3em;
-  font-size: 5.875rem;
+  font-size: 1.875rem;
   color: ${COLORS.orange[0]};
+
+  @media (min-width: 992px) {
+    margin-top: 0;
+    font-size: 5.875rem;
+  }
 `;
 
 const Subtitle = styled.h2`
   font-weight: 300;
-  font-size: 1.7rem;
+  font-size: 1rem;
   margin-top: 0.5em;
-`;
 
-const ContainerPhoto = styled.div`
-  display: inline-block;
-  transform: rotate(45deg);
-  border: 8px solid ${COLORS.orange[0]};
-  padding: 17px;
-  width: 35.3rem;
-  height: 35.3rem;
-  margin-top: 200px;
-  margin-left: 120px;
-`;
-
-const BackgroundBox = styled.div`
-  display: inline-block;
-  background: ${COLORS.orange[0]};
-  border: 8px solid ${COLORS.orange[0]};
-  outline: 4px;
-  width: 32rem;
-  height: 32rem;
-  overflow: visible;
-`;
-
-const Box = styled.div`
-  display: inline-block;
-  height: 150%;
-  vertical-align: bottom;
-  width: 150%;
-  margin-top: -50%;
-  margin-left: -50%;
-  overflow: hidden;
-`;
-
-const ProfileImage = styled.img.attrs({
-  src: profile,
-  alt: "My profile photo"
-})`
-  width: 57.625rem;
-  transform: translate(1rem, 0.25rem) rotate(-45deg);
+  @media (min-width: 992px) {
+    font-size: 1.7rem;
+  }
 `;
 
 const DiamondButtonOutter = styled.button`
@@ -86,9 +72,9 @@ const DiamondButtonOutter = styled.button`
   background: none;
   border: none;
   color: ${COLORS.white[0]};
-  position: fixed;
+  position: absolute;
   left: 140px;
-  bottom: 100px;
+  bottom: 80px;
   transform: rotate(45deg);
   border: 4px solid ${COLORS.white[0]};
   height: 10.6875rem;
@@ -120,13 +106,7 @@ const Content = () => {
         <Subtitle>{t("content:subtitle")}</Subtitle>
       </TextColumn>
       <PhotoColumn>
-        <ContainerPhoto>
-          <BackgroundBox>
-            <Box>
-              <ProfileImage />
-            </Box>
-          </BackgroundBox>
-        </ContainerPhoto>
+        <ProfileBox />
       </PhotoColumn>
       <DiamondButtonOutter>
         <span>{t("content:cta-button")}</span>

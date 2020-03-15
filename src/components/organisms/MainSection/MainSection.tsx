@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import { useTranslation, Trans } from "react-i18next";
 import { COLORS } from "@/utils/ui";
 
-import ProfileBox from "./components/ProfileBox";
+import ProfileBox from "./components/ProfileBox/ProfileBox";
 
 const columnCSS = css`
   width: 100%;
